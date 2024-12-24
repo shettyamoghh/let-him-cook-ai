@@ -3,6 +3,8 @@ import { useState } from 'react'
 export default function Main() {
     const [ingredients, setIngdredients] = useState([])
 
+    const apiKey = import.meta.env.VITE_CLAUDE_API
+
     const ingList = ingredients.map((ing) => {
         return (
             <li>{ing}</li>
