@@ -30,6 +30,13 @@ main {
     padding: 30px 30px 10px;
 }
 
+main > h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+}
+
 .add-ingredient-form {
     display: flex;
     justify-content: center;
@@ -103,4 +110,15 @@ ul.ingredients-list > li {
     font-family: Inter, sans-serif;
     font-size: 0.875rem;
     cursor: pointer;
+}
+
+.suggested-recipe-container {
+    color: #475467;
+    line-height: 28px;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.suggested-recipe-container ul li, .suggested-recipe-container ol li {
+    margin-bottom: 8px;
 }

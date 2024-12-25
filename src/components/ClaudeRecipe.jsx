@@ -1,7 +1,11 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
-export default function ClaudeRecipe() {
+export default function ClaudeRecipe(props) {
     return (
-        <h2>Recipe:</h2>
+        <section className="suggested-recipe-container">
+            <h2>LHC Recommends:</h2>
+            <ReactMarkdown >{props.recipe}</ReactMarkdown>
+        </section>
     )
 }
