@@ -7,8 +7,8 @@ export default function Footer() {
                 © {new Date().getFullYear()} Amogh Shetty 
                 <span className="separator"> | </span>
                 <a href="https://github.com/shettyamoghh" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
-                {/* <span className="separator"> | </span>
-                <a href="https://yourpersonalwebsite.com" target="_blank" rel="noopener noreferrer" className="footer-link">Personal Website</a> */}
+                <span className="separator"> | </span>
+                <a href="https://shettyamogh.com" target="_blank" rel="noopener noreferrer" className="footer-link">Portfolio</a>
             </p>
     </footer>
   )
