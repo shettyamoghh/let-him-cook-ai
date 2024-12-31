@@ -4,21 +4,26 @@ import IngredientList from './IngredientList'
 import { getRecipeFromChefClaude } from '../ai'
 
 export default function Main() {
+    // states for ingredients and recipe
     const [ingredients, setIngdredients] = useState([])
     const [recipe, setRecipe] = useState("")
+    // reference to getRecipe button section
     const recipeSection = useRef(null)
 
+    // side effect for auto-scrolling
     useEffect(() => {
         if (recipe !== "" && recipeSection !== null) {
-            recipeSection.current.scrollIntoView({behavior: "smooth"})
+            recipeSection.current.scrollIntoView({behavior: "smooth"}) // auto-scroll
         }
     }, [recipe])
 
+    // take ingredients from user and add it to array
     function addIngredient(formData) {
         const newIngredient = formData.get("ingredient")
         setIngdredients(prevIngredients => [...prevIngredients, newIngredient])
     }
 
+    // send recipe to claude and store recipe in recipeMarkdown
     async function getRecipe() {
         const recipeMarkdown = await getRecipeFromChefClaude(ingredients)
         setRecipe(recipeMarkdown)
@@ -27,6 +32,7 @@ export default function Main() {
     return (
         <main>
             <h1>Add your ingredients below and let's get cooking!</h1>
+            {/* form to take ingredients from the user */}
             <form action={addIngredient} className="add-ingredient-form">
                 <input 
                     type="text"
@@ -37,12 +43,14 @@ export default function Main() {
                 <button>Add ingredient</button>
             </form>
             <div className='centered-content-container'>
+                {/* list of user's ingredients */}
                 {ingredients.length > 0 && 
                     <IngredientList
                         ref={recipeSection}
                         ingredients={ingredients} 
                         getRecipe={getRecipe}
                     />}
+                {/* generated recipe from claude */}
                 {recipe && <ClaudeRecipe recipe={recipe}/>}
             </div>
         </main>
